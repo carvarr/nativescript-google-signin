@@ -39,8 +39,6 @@ You need to get the configuration file "google-services.json" copied to platform
 
   * add ```apply plugin: 'com.google.gms.google-services'``` below ```apply plugin: "com.android.application"```
 
-  * add the dependencie ```compile 'com.google.android.gms:play-services-auth:9.0.0'``` 
-
 ## Usage
 ```javascript
 var googleSignIn = require("nativescript-google-signin");
@@ -84,4 +82,4 @@ googleSignIn.singIn(config, callbacks);
 ```
 ## Notes
 
-- At the moment the plugin only supports android version; ios will be supported in the future (maybe there´s somebody that help me with this :sweat_smile:
+- At the moment the plugin only supports android version; ios will be supported in the future (maybe there´s somebody that help me with this :sweat_smile:)
