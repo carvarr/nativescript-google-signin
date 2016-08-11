@@ -19,9 +19,9 @@ You need to get the configuration file "google-services.json" copied to platform
 
   Also you can pass this code using the config object.
 
-- Add to yor build.gradle (platforms/android/build.gradle):
+- In your build.gradle (platforms/android/build.gradle):
 
-  * add ´´´mavenCentral()´´´ and ´´´classpath 'com.google.gms:google-services:3.0.0'´´´ to buildscript block
+  * add ```mavenCentral()``` and ```classpath 'com.google.gms:google-services:3.0.0'``` to buildscript block
 
 ```gradle
 buildscript {
@@ -37,9 +37,9 @@ buildscript {
 }
 ```
 
-  * add ´´´apply plugin: 'com.google.gms.google-services'´´´ below ´´´apply plugin: "com.android.application"´´´
+  * add ```apply plugin: 'com.google.gms.google-services'``` below ```apply plugin: "com.android.application"```
 
-  * add the dependencie ´´´compile 'com.google.android.gms:play-services-auth:9.0.0'´´´ 
+  * add the dependencie ```compile 'com.google.android.gms:play-services-auth:9.0.0'``` 
 
 ## Usage
 ```javascript
@@ -60,7 +60,7 @@ var config = {
 
 *authCode or requestToken must be set if you doesn't create the string variable in the xml file as explained before*
 
-Also as second param you need to pass callbacks function for success or failed events:
+Also as second param, you need to pass callbacks function for success or failed events:
 
 ```javascript
 var callbacks = {
@@ -74,7 +74,7 @@ var callbacks = {
     };
 ```
 
-- **onSuccess:** called when the signin process was successfully, the param *"result"* is an com.google.android.gms.auth.api.signin.GoogleSignInAccount object (https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
+- **onSuccess:** called when the signin process was successfully, the param *"result"* is a com.google.android.gms.auth.api.signin.GoogleSignInAccount object (https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
 - **onFailed:** called when ocurr a problem during the signin process, the param *"e"* is an exeption or a message with the google error code.
 
 
