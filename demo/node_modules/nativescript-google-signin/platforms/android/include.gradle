@@ -1,0 +1,7 @@
+android {
+	productFlavors {
+		"nativescript-google-signin" {
+			dimension "nativescript-google-signin"
+		}
+	}
+}
