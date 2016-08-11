@@ -2,11 +2,11 @@
 plugin for nativescript apps using signin with google
 
 ## Prerequisites
-You need to get the configuration file "google-services.json" copied to platforms/android/ directory. Also the prerequisites established by google must be set (https://developers.google.com/identity/sign-in/android/start-integrating)
+You need to get the configuration file "google-services.json" copied to platforms/android/ directory and the prerequisites established by google [must be set](https://developers.google.com/identity/sign-in/android/start-integrating)
 
 
 ## Installation
-- tns plugin add nativescript-google-signin
+- Add plugin ```tns plugin add nativescript-google-signin```
 
 - Add to your string(platforms/android/src/main/res/values/strings.xml) yor auth or request code
   ```xml
@@ -23,19 +23,19 @@ You need to get the configuration file "google-services.json" copied to platform
 
   * add ```mavenCentral()``` and ```classpath 'com.google.gms:google-services:3.0.0'``` to buildscript block
 
-```gradle
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+  ```gradle
+  buildscript {
+      repositories {
+          jcenter()
+          mavenCentral()
+      }
 
-	dependencies {
+	 dependencies {
 		classpath "com.android.tools.build:gradle:2.1.2"
            classpath 'com.google.gms:google-services:3.0.0'
-	}
-}
-```
+	 }
+  }
+  ```
 
   * add ```apply plugin: 'com.google.gms.google-services'``` below ```apply plugin: "com.android.application"```
 
@@ -74,7 +74,7 @@ var callbacks = {
     };
 ```
 
-- **onSuccess:** called when the signin process was successfully, the param *"result"* is a com.google.android.gms.auth.api.signin.GoogleSignInAccount object (https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
+- **onSuccess:** called when the signin process was successfully, the param *"result"* is a com.google.android.gms.auth.api.signin.GoogleSignInAccount object [see](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
 - **onFailed:** called when ocurr a problem during the signin process, the param *"e"* is an exeption or a message with the google error code.
 
 
@@ -82,3 +82,6 @@ invoke the singIn using the config created
 ```javascript
 googleSignIn.singIn(config, callbacks);
 ```
+## Notes
+
+- At the moment the plugin only supports android version; ios will be supported in the future (maybe there´s somebody that help me with this :sweat_smile:
