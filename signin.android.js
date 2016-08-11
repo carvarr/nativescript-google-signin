@@ -9,19 +9,25 @@ function init(config){
 		return;
 	}
 
-	if(config.authCode == undefined && config.requestToken == undefined){
+	activity = androidApplication.foregroundActivity || androidApplication.startActivity;
+
+	var authCode = getCodeFromResource("google_auth_code");
+	authCode = authCode == undefined ? config.authCode : authCode;
+
+	var tokenCode = getCodeFromResource("google_request_code");
+	tokenCode = tokenCode == undefined ? config.tokenCode : tokenCode;
+
+	if(authCode == undefined && tokenCode == undefined){
 		throw "Siging Failed: authCode or requestToken is required";
 	}
-
-	activity = androidApplication.foregroundActivity || androidApplication.startActivity;
 
 	var googleSignInOptions = new com.google.android.gms.auth.api.signin.GoogleSignInOptions.Builder(com.google.android.gms.auth.api.signin.GoogleSignInOptions.DEFAULT_SIGN_IN)
 																								.requestEmail();
 
-	if(config.authCode){
-		googleSignInOptions.requestServerAuthCode(config.authCode)
-	}else if(config.requestToken){
-		googleSignInOptions.requestServerAuthCode(config.requestToken)
+	if(authCode){
+		googleSignInOptions.requestServerAuthCode(authCode)
+	}else if(tokenCode){
+		googleSignInOptions.requestServerAuthCode(tokenCode)
 	}	
 
 	if(config.requestProfile){
@@ -36,9 +42,31 @@ function init(config){
 
 }
 
+function getCodeFromResource(name){
+
+	var package = activity.getPackageName();
+	var identifier = androidApplication.context.getResources().getIdentifier(name, "string", package);
+
+	if(identifier == 0){
+		return undefined;
+	}
+
+	return androidApplication.context.getString(identifier);
+}
+
 function singIn(config, callback){
 
-	init(config);
+	try{
+
+		init(config);
+
+	}catch(e){
+
+		callback.onFailed(e);
+		return;
+		
+	}
+	
 
 	var intent = com.google.android.gms.auth.api.Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
 	activity.startActivityForResult(intent, 1);

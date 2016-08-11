@@ -5,3 +5,7 @@ android {
 		}
 	}
 }
+
+dependencies{
+	compile 'com.google.android.gms:play-services-auth:9.0.0'
+}
