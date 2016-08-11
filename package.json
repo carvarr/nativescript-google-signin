@@ -1,0 +1,11 @@
+{
+	"name" : "nativescript-google-signin",
+	"version" : "0.0.1",
+	"description" : "A NativeScript module providing google signin for Android",
+	"main" : "signin.js",
+	"nativescript" : {
+		"platforms" : {
+			"android" : "2.1.1"
+		}
+	}
+}
