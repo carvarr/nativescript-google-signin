@@ -6,18 +6,40 @@ You need to get the configuration file "google-services.json" copied to platform
 
 
 ## Installation
-tns plugin add nativescript-google-signin
+- tns plugin add nativescript-google-signin
 
-Add to your string(platforms/android/src/main/res/values/strings.xml) yor auth or request code
-```xml
-<string name="google_auth_code">your-auth-code</string>
-```
-or
-```xml
-<string name="google_request_code">your-request-code</string>
+- Add to your string(platforms/android/src/main/res/values/strings.xml) yor auth or request code
+  ```xml
+  <string name="google_auth_code">your-auth-code</string>
+  ```
+  or
+  ```xml
+  <string name="google_request_code">your-request-code</string>
+  ```
+
+  Also you can pass this code using the config object.
+
+- Add to yor build.gradle (platforms/android/build.gradle):
+
+  * add ´´´mavenCentral()´´´ and ´´´classpath 'com.google.gms:google-services:3.0.0'´´´ to buildscript block
+
+```gradle
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+	dependencies {
+		classpath "com.android.tools.build:gradle:2.1.2"
+           classpath 'com.google.gms:google-services:3.0.0'
+	}
+}
 ```
 
-Also you can pass this code using the config object.
+  * add ´´´apply plugin: 'com.google.gms.google-services'´´´ below ´´´apply plugin: "com.android.application"´´´
+
+  * add the dependencie ´´´compile 'com.google.android.gms:play-services-auth:9.0.0'´´´ 
 
 ## Usage
 ```javascript
@@ -36,6 +58,8 @@ var config = {
 - **requestToken:** code for request the access token (is required if authCode is skiped)
 - **requestProfile:** set as true if you want the profile information (if is skiped, only email info is requested)
 
+*authCode or requestToken must be set if you doesn't create the string variable in the xml file as explained before*
+
 Also as second param you need to pass callbacks function for success or failed events:
 
 ```javascript
@@ -50,8 +74,8 @@ var callbacks = {
     };
 ```
 
-- **onSuccess:** called when the signin process was successfully, the param result is an com.google.android.gms.auth.api.signin.GoogleSignInAccount object (https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
-- **onFailed:** called when ocurr a problem during the signin process, the param e is an exeption or a message with the google error code.
+- **onSuccess:** called when the signin process was successfully, the param *"result"* is an com.google.android.gms.auth.api.signin.GoogleSignInAccount object (https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
+- **onFailed:** called when ocurr a problem during the signin process, the param *"e"* is an exeption or a message with the google error code.
 
 
 invoke the singIn using the config created
