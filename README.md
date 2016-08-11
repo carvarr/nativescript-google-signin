@@ -20,21 +20,25 @@ or
 Also you can pass this code using the config object.
 
 ## Usage
-
+```javascript
 var googleSignIn = require("nativescript-google-signin");
+```
 
 create a config object
+```javascript
 var config = {
         authCode: "your-auth-code",
         requestProfile: true
 };
+```
 
-###authCode: code for request server authorization
-###requestToken: code for request the access token (is required if authCode is skiped)
-###requestProfile: set as true if you want the profile information (if is skiped, only email info is requested)
+- **authCode:** code for request server authorization
+- **requestToken:** code for request the access token (is required if authCode is skiped)
+- **requestProfile:** set as true if you want the profile information (if is skiped, only email info is requested)
 
 Also as second param you need to pass callbacks function for success or failed events:
 
+```javascript
 var callbacks = {
 
         onSuccess: function(result){
@@ -44,11 +48,13 @@ var callbacks = {
         }
 
     };
+```
 
-###onSuccess: called when the signin process was successfully, the param result is an com.google.android.gms.auth.api.signin.GoogleSignInAccount object (https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
-###onFailed: called when ocurr a problem during the signin process, the param e is an exeption or a message with the google error code.
+- **onSuccess:** called when the signin process was successfully, the param result is an com.google.android.gms.auth.api.signin.GoogleSignInAccount object (https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInResult)
+- **onFailed:** called when ocurr a problem during the signin process, the param e is an exeption or a message with the google error code.
 
 
 invoke the singIn using the config created
+```javascript
 googleSignIn.singIn(config, callbacks);
-
+```
