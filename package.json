@@ -1,37 +1,37 @@
 {
-	"name" : "nativescript-google-signin",
-	"version" : "0.0.1",
-	"description" : "A NativeScript module providing google signin for Android",
-	"main" : "signin.js",
-	"nativescript" : {
-		"platforms" : {
-			"android" : "2.2.0"
-		}
-	},
-	"repository":{
-		"type": "git",
-		"url": "https://github.com/carvarr/nativescript-google-signin"
-	},
-	"keywords":[
-		"NativeScript",
-		"Google",
-		"SignIn"
-	],
-	"author": {
-		"name": "Carlos Mario Villadiego",
-		"email": "cvilladiegoa@gmail.com"
-	},
-	"license":{
-		"type": "",
-		"url": "https://github.com/carvarr/nativescript-google-signin/LICENSE"
-	},
-	"bugs":{
-		"url": "https://github.com/carvarr/nativescript-google-signin/issues"
-	},
-	"homepage": "https://github.com/carvarr/nativescript-google-signin",
-	"readmeFilename": "README.md",
-	"dependencies": {},
-	"devDependencies": {
-	   "tns-core-modules": "^2.2.0"
-	 }
+  "name": "nativescript-google-signin",
+  "version": "0.1.0",
+  "description": "A NativeScript module providing google signin for Android",
+  "main": "signin.js",
+  "nativescript": {
+    "platforms": {
+      "android": "2.2.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carvarr/nativescript-google-signin"
+  },
+  "keywords": [
+    "NativeScript",
+    "Google",
+    "SignIn"
+  ],
+  "author": {
+    "name": "Carlos Mario Villadiego",
+    "email": "cvilladiegoa@gmail.com"
+  },
+  "license": {
+    "type": "",
+    "url": "https://github.com/carvarr/nativescript-google-signin/LICENSE"
+  },
+  "bugs": {
+    "url": "https://github.com/carvarr/nativescript-google-signin/issues"
+  },
+  "homepage": "https://github.com/carvarr/nativescript-google-signin",
+  "readmeFilename": "README.md",
+  "dependencies": {},
+  "devDependencies": {
+    "tns-core-modules": "^2.2.0"
+  }
 }
